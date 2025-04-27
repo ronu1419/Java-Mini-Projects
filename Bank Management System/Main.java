@@ -71,6 +71,7 @@ public class Main {
         int initialBal = sc.nextInt();
 
         Account user = new Account(userName, initialBal);
+        user.showBalance();
         sc.close();
     }
 }
