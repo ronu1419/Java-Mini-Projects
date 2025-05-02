@@ -23,15 +23,15 @@ class Student {
     public int getRollNo() {
         return rollNo;
     }
+
+    @Override
+    public String toString() {
+        return "Name : " + name + "\nRoll No : " + rollNo + "\nStandard : " + standard;
+    }
 }
 
 class Marks extends Student {
-    private int sst;
-    private int maths;
-    private int hindi;
-    private int science;
-    private int english;
-    private int sanskrit;
+    private int sst, maths, hindi, science, english, sanskrit;
 
     public Marks(String name, String standard, int rollNo, int english, int maths, int science, int sst, int sanskrit,
             int hindi) {
@@ -42,7 +42,6 @@ class Marks extends Student {
         this.english = english;
         this.science = science;
         this.sanskrit = sanskrit;
-        StudentsList.addStudent(this);
     }
 
     public int getEnglish() {
@@ -69,6 +68,17 @@ class Marks extends Student {
         return hindi;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\nEnglish : " + english +
+                "\nMaths : " + maths +
+                "\nScience : " + science +
+                "\nSST : " + sst +
+                "\nSanskrit : " + sanskrit +
+                "\nHindi : " + hindi;
+    }
+
 }
 
 class StudentsList {
@@ -79,29 +89,18 @@ class StudentsList {
     }
 
     public static void printStudentList() {
-        for (Student stud : studentList) {
-            System.out.println("Name : " + stud.getName());
-            System.out.println("Roll No : " + stud.getRollNo());
-            System.out.println("Standard : " + stud.getStandard());
-            // DownCasting
-            if (stud instanceof Marks) {
-                Marks m = (Marks) stud;
-                System.out.println("English : " + m.getEnglish());
-                System.out.println("Maths : " + m.getMaths());
-                System.out.println("Science : " + m.getScience());
-                System.out.println("SST : " + m.getSst());
-                System.out.println("Sanskrit : " + m.getSanskrit());
-                System.out.println("Hindi : " + m.getHindi());
-            }
-
+        for (Student student : studentList) {
+            System.out.println(student.toString());
+            System.out.println("--------------------");
         }
     }
+
 }
 
 public class Main {
     public static void main(String[] args) {
-        new Marks("Rahul", "10th", 1, 85, 90, 88, 80, 75, 89);
-        new Marks("Anjali", "10th", 2, 78, 85, 92, 76, 80, 81);
+        StudentsList.addStudent(new Marks("Rahul", "10th", 1, 85, 90, 88, 80, 75, 89));
+        StudentsList.addStudent(new Marks("Anjali", "10th", 2, 78, 85, 92, 76, 80, 81));
 
         StudentsList.printStudentList();
     }
