@@ -122,7 +122,7 @@ class LibraryManager {
     }
 }
 
-public abstract class Main {
+public abstract class LibraryMain {
     public static void main(String[] args) {
         LibraryManager library = new LibraryManager();
         library.addBook(new EBook(1, "Garvit", "Learn Java", false, 10, "pdf", "eBook"));
