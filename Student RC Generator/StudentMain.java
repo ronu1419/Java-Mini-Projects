@@ -97,7 +97,7 @@ class StudentsList {
 
 }
 
-public class Main {
+public class StudentMain {
     public static void main(String[] args) {
         StudentsList.addStudent(new Marks("Rahul", "10th", 1, 85, 90, 88, 80, 75, 89));
         StudentsList.addStudent(new Marks("Anjali", "10th", 2, 78, 85, 92, 76, 80, 81));
